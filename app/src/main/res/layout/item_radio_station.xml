@@ -23,8 +23,9 @@
         android:textSize="18sp"
         android:textColor="@android:color/white" />
 
-    <ImageButton
-        android:id="@+id/playButton"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/soundStatus"
+        android:clickable="false"
         android:layout_width="75dp"
         android:layout_height="match_parent"
         android:src="@drawable/ic_play"

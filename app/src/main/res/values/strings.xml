@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">CarMultimedia</string>
+    <string name="app_name" translatable="false">CarMultimedia</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="incoming_call">You have an incoming call</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="starting_location">Starting Location</string>
+    <string name="search_for_places">Search for places</string>
+    <string name="fastest_route">Fastest route</string>
+    <string name="steps">Steps</string>
 </resources>

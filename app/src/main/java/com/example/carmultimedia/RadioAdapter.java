@@ -3,20 +3,18 @@ package com.example.carmultimedia;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.List;
 
@@ -48,13 +46,13 @@ public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.RadioViewHol
                 .load(station.getImageUrl())
                 .into(holder.stationImage);
 
-        // Set the correct icon for the button
+        // Set the correct icon and background color for the button
         if (position == playingPosition) {
             holder.itemView.setBackgroundColor(ContextCompat.getColor(context,R.color.primary));
-            holder.playButton.setImageResource(R.drawable.ic_pause);
+            holder.soundStatus.setImageResource(R.drawable.ic_pause);
         } else {
             holder.itemView.setBackgroundColor(0);
-            holder.playButton.setImageResource(R.drawable.ic_play);
+            holder.soundStatus.setImageResource(R.drawable.ic_play);
         }
 
         holder.itemView.setOnClickListener(v -> {
@@ -62,7 +60,6 @@ public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.RadioViewHol
                 // If this station is already playing, pause it
                 controlRadioService("ACTION_PAUSE");
                 playingPosition = -1;  // Reset the playing position
-                notifyItemChanged(position);
             } else {
                 // If another station is playing, stop it first
                 if (playingPosition != -1) {
@@ -73,8 +70,8 @@ public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.RadioViewHol
                 // Start the new station
                 controlRadioService("ACTION_PLAY", station.getStreamLink());
                 playingPosition = position;
-                notifyItemChanged(position);  // Update the new station's icon
             }
+            notifyItemChanged(position);  // Update the new station's icon or the paused icon
         });
     }
 
@@ -99,13 +96,13 @@ public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.RadioViewHol
     public static class RadioViewHolder extends RecyclerView.ViewHolder {
         ImageView stationImage;
         TextView stationName;
-        ImageButton playButton;
+        ShapeableImageView soundStatus;
 
         public RadioViewHolder(@NonNull View itemView) {
             super(itemView);
             stationImage = itemView.findViewById(R.id.stationImage);
             stationName = itemView.findViewById(R.id.stationName);
-            playButton = itemView.findViewById(R.id.playButton);
+            soundStatus = itemView.findViewById(R.id.soundStatus);
         }
     }
 }

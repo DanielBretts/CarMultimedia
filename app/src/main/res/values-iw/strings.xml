@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="incoming_call">יש לך שיחה נכנסת</string>
+    <string name="from">מוצא</string>
+    <string name="to">יעד</string>
+    <string name="starting_location">מיקום התחלתי</string>
+    <string name="search_for_places">הזן כתובת ליעד</string>
+    <string name="fastest_route">המסלול המהיר ביותר</string>
+    <string name="steps">הוראות הגעה</string>
+
+</resources>

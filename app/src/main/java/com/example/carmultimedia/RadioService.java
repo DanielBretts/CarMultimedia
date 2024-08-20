@@ -12,67 +12,54 @@ import java.io.IOException;
 public class RadioService extends Service {
 
     private MediaPlayer mediaPlayer;
-    private boolean isPrepared = false;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    private void initializeMediaPlayer(String streamLink) {
-        if (mediaPlayer != null) {
-            mediaPlayer.release();  // Release the existing MediaPlayer
-        }
-
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-
-        try {
-            mediaPlayer.setDataSource(streamLink);
-            mediaPlayer.prepareAsync();
-            mediaPlayer.setOnPreparedListener(mp -> {
-                isPrepared = true;
-                mp.start();
-            });
-        } catch (IOException e) {
-            Log.e("RadioService", "Error preparing media player", e);
-        }
-    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         String action = intent.getAction();
         String streamLink = intent.getStringExtra("STREAM_LINK");
 
-        if (streamLink != null) {
-            if ("ACTION_PLAY".equals(action)) {
-                initializeMediaPlayer(streamLink);
-            } else if ("ACTION_PAUSE".equals(action)) {
-                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                    mediaPlayer.pause();
-                }
-            } else if ("ACTION_STOP".equals(action)) {
-                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
-                    isPrepared = false;
-                    stopSelf();
-                }
-            }
+        if ("ACTION_PLAY".equals(action)) {
+            startPlaying(streamLink);
+        } else if ("ACTION_PAUSE".equals(action)) {
+            pausePlaying();
+        } else if ("ACTION_STOP".equals(action)) {
+            stopPlaying();
         }
 
         return START_NOT_STICKY;
     }
 
-    @Override
-    public void onDestroy() {
+    private void startPlaying(String streamLink) {
+        stopPlaying(); // Stop any current playback before starting a new one
+
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(streamLink);
+            mediaPlayer.setOnPreparedListener(mp -> mediaPlayer.start());
+            mediaPlayer.prepareAsync();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void pausePlaying() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
+
+    private void stopPlaying() {
         if (mediaPlayer != null) {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-            }
+            mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
         }
+    }
+
+    @Override
+    public void onDestroy() {
         super.onDestroy();
+        stopPlaying();
     }
 
     @Override

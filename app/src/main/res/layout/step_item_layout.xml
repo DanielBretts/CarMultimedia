@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:backgroundTint="@color/background"
+    android:background="?attr/selectableItemBackground">
+
+    <!-- Step Description -->
+    <TextView
+        android:id="@+id/txtStepHtml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn Left"
+        android:textColor="@color/primaryText"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:drawablePadding="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1" />
+
+    <!-- Step Time -->
+    <TextView
+        android:id="@+id/txtStepTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtStepHtml"
+        android:layout_marginTop="8dp"
+        android:text="12 min"
+        android:textColor="@color/secondaryText"
+        android:textSize="16sp"
+        android:layout_alignStart="@+id/txtStepHtml" />
+
+    <!-- Step Distance -->
+    <TextView
+        android:id="@+id/txtStepDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtStepHtml"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:text="15 Km"
+        android:textColor="@color/secondaryText"
+        android:textSize="16sp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/txtStepDistance"
+        android:layout_marginTop="10dp"
+        android:background="@color/divider" />
+
+</RelativeLayout>

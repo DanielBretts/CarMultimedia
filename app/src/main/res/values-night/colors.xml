@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#0E1023</color>
+    <color name="primaryLight">#8A8DB8</color>
+    <color name="primaryText">#FFFFFF</color>
+    <color name="secondaryText">#757575</color>
+    <color name="background">#f5f5f5</color>
+    <color name="highlight">#FFAB40</color>
+    <color name="divider">#D1D1D1</color>
+    <color name="transparentColor" >#00FFFFFF</color>
+    <color name="neon" >#53E7DF</color>
+
+
+</resources>

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="primary">#1a1c34</color>
+    <color name="white">#FF000000</color> <!-- Same as dark mode, black -->
+    <color name="black">#FFFFFFFF</color> <!-- Same as dark mode, white -->
+    <color name="primaryLight">#FDFDFD</color> <!-- Dark blue-black for primary elements -->
+    <color name="primary">#6BB0F4</color> <!-- Lighter blue-gray shade for primary light elements -->
+    <color name="accent">#FF4081</color> <!-- Bright pink accent color for key elements -->
+    <color name="secondaryText">#757575</color> <!-- Medium gray for secondary text -->
+    <color name="background">#F5F5F5</color> <!-- Light gray background color for light mode -->
+    <color name="highlight">#FFAB40</color> <!-- Bright orange for highlights and accents -->
+    <color name="divider">#D1D1D1</color> <!-- Light gray for dividers and borders -->
+    <color name="transparentColor">#00FFFFFF</color> <!-- Transparent color -->
+    <color name="neon">#D1D1D1</color> <!-- Neon teal-blue for accent elements -->
+    <color name="primaryText">#6BB0F4</color>
+
 
 </resources>

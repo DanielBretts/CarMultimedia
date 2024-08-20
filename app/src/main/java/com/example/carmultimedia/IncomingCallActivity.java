@@ -41,7 +41,7 @@ public class IncomingCallActivity extends AppCompatActivity {
         callInfo = findViewById(R.id.callInfo);
 
         String incomingNumber = getIntent().getStringExtra("INCOMING_NUMBER");
-        callInfo.setText("Incoming call from: " + incomingNumber);
+        callInfo.setText(getString(R.string.incoming_call));
 
         binding.answerButton.setOnClickListener(v -> answerCall());
         binding.hangupButton.setOnClickListener(v -> hangupCall());

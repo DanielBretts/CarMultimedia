@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+app:layout_behavior="@string/bottom_sheet_behavior"
+tools:context=".NavigationActivity">
+
+<fragment
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+<include
+    android:id="@+id/bottom_sheet"
+    layout="@layout/bottom_sheet_layout"/>
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/backBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start"
+    android:layout_margin="8dp"
+    android:src="@drawable/house_icon"
+    app:backgroundTint="@color/black"
+    app:fabCustomSize="40dp"
+    app:tint="@color/quantum_grey" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardCornerRadius="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/imgStartLocation"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/house_icon"
+                app:tint="@color/primaryText" />
+
+            <TextView
+                android:id="@+id/txtStartLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/imgStartLocation"
+                android:text="@string/from"
+                android:textColor="@color/primaryText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtStartLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtStartLbl"
+                android:layout_alignStart="@+id/txtStartLbl"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:hint="@string/starting_location"
+                android:textColor="@color/primaryText"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/txtStartLocation"
+                android:layout_alignStart="@+id/txtStartLocation"
+                android:layout_marginTop="10dp"
+                android:background="@color/primaryText" />
+
+            <ImageView
+                android:id="@+id/imgEndLocation"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/view"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/nav"
+                app:tint="@color/primaryText" />
+
+            <TextView
+                android:id="@+id/txtEndLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view"
+                android:layout_alignStart="@+id/view"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/imgEndLocation"
+                android:hint="@string/to"
+                android:textColor="@color/primaryText"
+                android:textStyle="bold" />
+
+            <SearchView
+                android:id="@+id/txtEndLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txtEndLbl"
+                android:layout_below="@+id/txtEndLbl"
+                android:queryHint="@string/search_for_places"
+                android:iconifiedByDefault="false"/>
+
+        </RelativeLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,7 +13,7 @@ android:gravity="center"
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textColor="@color/white"
-        android:text="Incoming call from: "
+        android:text="@string/incoming_call"
         android:layout_centerInParent="true"/>
 
     <Chronometer

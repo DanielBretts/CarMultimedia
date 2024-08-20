@@ -1,18 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Top Image -->
-    <ImageView
-        android:id="@+id/topImageView"
+    <!-- FrameLayout to hold the top image and the temperature -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:scaleType="center"
-        android:src="@drawable/top_bg" />
+        android:layout_weight="2">
+
+        <!-- Top Image -->
+        <ImageView
+            android:id="@+id/topImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/top_bg" />
+
+        <!-- Temperature TextView -->
+        <TextView
+            android:id="@+id/temperatureTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text=""
+            android:textColor="@color/neon"
+
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="5"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:padding="16dp"
+            android:background="@android:color/transparent" />
+    </FrameLayout>
 
     <!-- FrameLayout to hold the bottom image and buttons together -->
     <FrameLayout
@@ -46,20 +69,8 @@
                 android:background="@drawable/neon_button_background"
                 android:scaleType="centerInside"
                 android:src="@drawable/nav"
-                android:padding="20dp"
-                android:onClick="openNavActivity" />
 
-            <!-- Music Button -->
-            <ImageButton
-                android:id="@+id/musicButton"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                android:background="@drawable/neon_button_background"
-                android:scaleType="fitXY"
-                android:src="@drawable/music"
-                android:padding="20dp"
-                android:onClick="openMusicActivity" />
+                android:padding="20dp" />
 
             <!-- Radio Button -->
             <ImageButton
@@ -70,21 +81,17 @@
                 android:background="@drawable/neon_button_background"
                 android:scaleType="fitXY"
                 android:src="@drawable/radio"
-                android:padding="20dp"
-                android:onClick="openRadioActivity" />
+                android:padding="20dp" />
 
-            <!-- Phone Calls Button -->
             <ImageButton
-                android:id="@+id/phoneButton"
+                android:id="@+id/wazeButton"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/neon_button_background"
-                android:scaleType="fitXY"
-                android:src="@drawable/phone"
-                android:padding="20dp"
-                android:onClick="openPhoneActivity" />
-
+                android:scaleType="centerInside"
+                android:src="@drawable/waze"
+                android:padding="20dp" />
         </LinearLayout>
     </FrameLayout>
 
