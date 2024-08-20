@@ -36,9 +36,10 @@ CarMultimedia is an Android application designed for users driving older vehicle
 ### 6. Dark/Light Mode
 - **Theme Support:** The app supports both dark and light modes according to their system settings.
 
-
-
-![homepage.png](screenshots%2Fhomepage.png)
+<p align="center">
+  <img src="screenshots%2Fhomepage_light.png" alt="Image 1" width="45%">
+  <img src="screenshots%2Fhomepage.png" alt="Image 2" width="45%">
+</p>
 
 ## Libraries Used
 
