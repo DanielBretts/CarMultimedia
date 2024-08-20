@@ -41,6 +41,12 @@ CarMultimedia is an Android application designed for users driving older vehicle
   <img src="screenshots%2Fhomepage.png" alt="Image 2" width="45%">
 </p>
 
+
+
+https://github.com/user-attachments/assets/a843f6c4-2d13-46d6-9da2-221f91dc45e3
+
+
+
 ## Libraries Used
 
 - **Retrofit:** For handling network requests and JSON parsing.
